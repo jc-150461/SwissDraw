@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SwissDraw;
 using System;
 using System.Collections.Generic;
@@ -80,7 +81,7 @@ namespace SwissDraw.Tests
             Assert.AreEqual(6, result[5]);
         }
 
-       /* [TestMethod()]
+        [TestMethod()]
         public void GetMinimumKeyTest()
         {
             int[][] keys = new int[1][];
@@ -109,7 +110,7 @@ namespace SwissDraw.Tests
             Assert.AreEqual(1, result3);
             var result4 = Match.GetMinimumKey(keys2, matches2);
             Assert.AreEqual(4, result4);
-        }*/
+        }
         [TestMethod()]
 
         public void isSameGroupTest()

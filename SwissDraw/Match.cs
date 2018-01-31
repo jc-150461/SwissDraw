@@ -91,7 +91,7 @@ namespace SwissDraw
         }
 
           // 「対戦していない」で対戦
-        public static Match[] MakeMatch3(int matchCount, int[][] SplittedKeys, Dictionary<int, Person> persons, Match[] results)
+      /*  public static Match[] MakeMatch3(int matchCount, int[][] SplittedKeys, Dictionary<int, Person> persons, Match[] results)
         {
             Match[] matches = new Match[matchCount];
 
@@ -112,7 +112,7 @@ namespace SwissDraw
                 matches[i] = new Match(minKey, versusKey);
             }
             return matches;
-        }
+        }*/
 
 
        
@@ -175,8 +175,8 @@ namespace SwissDraw
                     i++;
                 }
             }
-            while (i <= splittedKeys.Length)
-            {
+           // while (i <= splittedKeys.Length)
+            //{
                 foreach (int key in splittedKeys[i])
                 {
                     if ( key != minKey)
@@ -194,7 +194,7 @@ namespace SwissDraw
                     }
                 }
                 i++;
-            }
+           // }
             return -1;
         }
 
@@ -216,8 +216,8 @@ namespace SwissDraw
                     i++;
                 }
             }
-            while (i <= splittedKeys.Length)
-            {
+            //while (i <= splittedKeys.Length)
+           // {
                 foreach (int key in splittedKeys[i])
                 {
                     if ( key != minKey)
@@ -235,13 +235,13 @@ namespace SwissDraw
                     }
                 }
                 i++;
-            }
+           // }
             return -1;
         }
 
         // 対応する対戦相手のくじ番号を取得する
         //（使われていない、対戦していない、勝ち数無視）
-        public static int getVersusKey3(int minKey, int[][] splittedKeys, Match[] matches,
+     /*   public static int getVersusKey3(int minKey, int[][] splittedKeys, Match[] matches,
             Dictionary<int, Person> persons, Match[] results)
         {
             int i = 0;
@@ -280,7 +280,7 @@ namespace SwissDraw
             return -1;
 
         
-        }
+        }*/
 
 
 
@@ -296,6 +296,7 @@ namespace SwissDraw
         public static bool isMatched(Match[] results, int i, int j)
         {
             foreach (Match m in results)
+
             {
                 if (isMatched(m, i, j) == true)
                 {
@@ -343,7 +344,7 @@ namespace SwissDraw
         {
             if (containsKey(result, key) == true)
             {
-                int count = 0;
+               // int count = 0;
                 if (result.result == 1)
                 {
                     if (result.person1 == key)
@@ -365,8 +366,8 @@ namespace SwissDraw
         // 最小のくじ番号を取得する(使われていないこと)
         public static int GetMinimumKey(int[][] splittedKeys, Match[] matches)
         {
-            int minKey = 100000;
-            foreach (int[] a in splittedKeys)
+            int minKey = 1000;
+            foreach (int[] a in splittedKeys) 
             {
                 foreach (int b in a)
                 {
@@ -378,6 +379,8 @@ namespace SwissDraw
                         }
                     }
                 }
+                    if(minKey != 1000)
+                    return minKey;
             }
             return minKey;
         }
@@ -386,10 +389,14 @@ namespace SwissDraw
         {
             foreach (Match m in matches)
             {
-                if (containsKey(m, i) == true)
+                if (m != null)
                 {
-                    return true;
+                    if (containsKey(m, i) == true)
+                    {
+                        return true;
+                    }
                 }
+            
             }
             return false;
         }
